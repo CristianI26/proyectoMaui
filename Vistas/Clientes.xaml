@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="proyectoMaui.Vistas.Clientes"
+             Title="Clientes">
+    <ContentPage.Resources>
+        <Style TargetType="Label" x:Key="ColumnHeaderStyle">
+            <Setter Property="FontAttributes" Value="Bold" />
+            <Setter Property="TextColor" Value="Green" />
+            <Setter Property="FontSize" Value="18" />
+            <Setter Property="HorizontalOptions" Value="Center" />
+            <Setter Property="VerticalOptions" Value="Center" />
+        </Style>
+    </ContentPage.Resources>
+
+    <VerticalStackLayout Spacing="20">
+        <Label 
+Text="VENTAS CHULLA PARTY"
+FontSize="20"
+FontAttributes="Bold"
+TextColor="Black"
+VerticalOptions="Center" 
+HorizontalOptions="Center" />
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Label Text="Id" Style="{StaticResource ColumnHeaderStyle}" FontSize="14" Grid.Row="0" Grid.Column="0"/>
+            <Label Text="Email" Style="{StaticResource ColumnHeaderStyle}"  FontSize="14" Grid.Row="0" Grid.Column="1"/>
+            <Label Text="Nombre" Style="{StaticResource ColumnHeaderStyle}" Grid.Row="0" FontSize="14" Grid.Column="2"/>
+            <Label Text="Ciudad" Style="{StaticResource ColumnHeaderStyle}" Grid.Row="0" FontSize="14" Grid.Column="3"/>
+            <Label Text="Telefono" Style="{StaticResource ColumnHeaderStyle}" Grid.Row="0" FontSize="14" Grid.Column="4"/>
+        </Grid>
+                    <ListView x:Name="listaClientes" ItemSelected="listaClientes_ItemSelected">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout>
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition/>
+
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <Label x:Name="lblid"  Text="{Binding id}"  Grid.Row="0" Grid.Column="0" HorizontalTextAlignment="Center"/>
+                                <Label x:Name="lblemail" Text="{Binding email}" Grid.Row="0" Grid.Column="1" HorizontalTextAlignment="Center"/>
+                                <Label x:Name="lblname" Text="{Binding name}" Grid.Row="0" Grid.Column="2" HorizontalTextAlignment="Center"/>
+                                <Label x:Name="lblcity" Text="{Binding city}" Grid.Row="0" Grid.Column="3" HorizontalTextAlignment="Center"/>
+                                <Label x:Name="lbltelephono" Text="{Binding telephono}" Grid.Row="0" Grid.Column="4" HorizontalTextAlignment="Center"/>
+                         </Grid>
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+
+            </ListView.ItemTemplate>
+
+        </ListView>
+
+    </VerticalStackLayout>
+</ContentPage>

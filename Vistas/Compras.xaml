@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="proyectoMaui.Vistas.Compras"
+             Title="Lista de Productos"
+             BackgroundColor="Aqua">
+    <ContentPage.Resources>
+        <Style TargetType="Label" x:Key="ColumnHeaderStyle">
+            <Setter Property="FontAttributes" Value="Bold" />
+            <Setter Property="TextColor" Value="Green" />
+            <Setter Property="FontSize" Value="18" />
+            <Setter Property="HorizontalOptions" Value="Center" />
+            <Setter Property="VerticalOptions" Value="Center" />
+        </Style>
+    </ContentPage.Resources>
+
+    <VerticalStackLayout Spacing="20">
+        <Label 
+Text="CHULLA PARTY"
+FontSize="20"
+FontAttributes="Bold"
+TextColor="Black"
+VerticalOptions="Center" 
+HorizontalOptions="Center" />
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Label Text="Id" Style="{StaticResource ColumnHeaderStyle}" FontSize="14" Grid.Row="0" Grid.Column="0"/>
+            <Label Text="Categoria" Style="{StaticResource ColumnHeaderStyle}"  FontSize="14" Grid.Row="0" Grid.Column="1"/>
+            <Label Text="Licor" Style="{StaticResource ColumnHeaderStyle}" Grid.Row="0" FontSize="14" Grid.Column="2"/>
+            <Label Text="Precio" Style="{StaticResource ColumnHeaderStyle}" Grid.Row="0" FontSize="14" Grid.Column="3"/>
+            <Label Text="Cantidad" Style="{StaticResource ColumnHeaderStyle}" Grid.Row="0" FontSize="14" Grid.Column="4"/>
+            
+        </Grid>
+        <ListView x:Name="listaProductos" ItemSelected="listaProductos_ItemSelected">
+           
+            <ListView.ItemTemplate>
+                
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout>
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition/>
+
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <Label x:Name="lblid"  Text="{Binding id}"  Grid.Row="0" Grid.Column="0" HorizontalTextAlignment="Center"/>
+                                <Label x:Name="lblcategoria" Text="{Binding categoria}" Grid.Row="0" Grid.Column="1" HorizontalTextAlignment="Center"/>
+                                <Label x:Name="lbllicor" Text="{Binding licor}" Grid.Row="0" Grid.Column="2" HorizontalTextAlignment="Center"/>
+                                <Label x:Name="lblprecio" Text="{Binding precio}" Grid.Row="0" Grid.Column="3" HorizontalTextAlignment="Center"/>
+                                <Label x:Name="lblcantidad" Text="{Binding cantidad}" Grid.Row="0" Grid.Column="4" HorizontalTextAlignment="Center"/>
+
+                                
+                            </Grid>
+                            
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+
+            </ListView.ItemTemplate>
+
+        </ListView>
+        <Button x:Name="btnClientes"
+Text="Ver Lista de Clientes"
+Clicked="btnClientes_Clicked"/>
+
+    </VerticalStackLayout>
+</ContentPage>
